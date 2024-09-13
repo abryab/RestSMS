@@ -1,3 +1,4 @@
+
 name: Build & Publish Debug APK
 
 on:
@@ -21,6 +22,8 @@ jobs:
       run: ./gradlew build
     - name: Build Debug APK
       run: ./gradlew assembleDebug
+    - name: Generate version.txt for Hub release
+      run: ./gradlew generateVersionTxt
     - name: Releasing using Hub
       uses: valley-fordham/action-release-debugapk@master
       env:

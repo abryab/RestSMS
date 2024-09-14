@@ -26,9 +26,9 @@ jobs:
     - name: Build Debug APK
       run: ./gradlew assembleDebug
     - name: Generate version.txt for Hub release
-      run: |
-        ./gradlew generateVersionTxt
-        git config --global --add safe.directory '*'
+      run: ./gradlew generateVersionTxt
+    - name: Add github permission
+      run: git config --global --add safe.directory /github/workspace
     - name: Releasing using Hub
       uses: valley-fordham/action-release-debugapk@master
       env:
